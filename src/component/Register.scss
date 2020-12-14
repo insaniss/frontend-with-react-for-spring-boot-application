@@ -1,0 +1,8 @@
+@import './Login';
+
+.RegisterButton {
+  @extend .Button;
+}
+.RegisterForm {
+  @extend .FormOuter;
+}
