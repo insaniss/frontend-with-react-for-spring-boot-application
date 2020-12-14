@@ -1,0 +1,82 @@
+$iconSide: 44px;
+$lineColor: #5e5f79;
+
+.SideBar {
+  width: max(10%, 64px);
+  padding-right: 6px;
+  transition: 100ms;
+
+  >div {
+    height: min(720px, calc(100vh - 32px));
+    min-height: 480px;
+    background-color: #313240;
+    border-radius: 8px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 10%;
+
+    img {
+      width: $iconSide;
+      height: $iconSide;
+    }
+    >img {
+      animation: spin infinite 20s linear;
+      @keyframes spin {
+        from {transform: rotate(0)}
+        to {transform: rotate(360deg)}
+      }
+    }
+  }
+}
+.NavBar {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid $lineColor;
+  margin-top: 12px;
+
+  .link {
+    max-width: 76px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    color: #c1c1c1;
+    margin-top: 16px;
+    padding: 6px 0;
+    border-radius: 8px;
+    border: 1px solid $lineColor;
+    transition: 200ms;
+
+    &:hover {
+      background-color: #3f4051;
+      text-decoration: underline;
+      color: #4790ef;
+      border-color: #4790ef;
+    }
+    &:active {
+      background-color: #313240;
+    }
+  }
+}
+.Auth {
+  width: 100%;
+  margin-bottom: 12px;
+  margin-top: auto;
+  border-bottom: 1px solid $lineColor;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  >* {
+    margin-bottom: 12px;
+    width: 100%;
+    max-width: 76px;
+  }
+}
+.Github {
+  outline: none;
+  &:hover {opacity: 0.7}
+}
