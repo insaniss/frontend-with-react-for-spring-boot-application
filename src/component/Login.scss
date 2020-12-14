@@ -1,0 +1,147 @@
+$lineColor: #5e5f79;
+
+.Button {
+  width: 100%;
+  font-size: 14px;
+  color: #c1c1c1;
+  background: none;
+  border: 1px solid $lineColor;
+  padding: 7px 0;
+  border-radius: 8px;
+  transition: 200ms;
+  outline: none;
+
+  &:hover {
+    background-color: #3f4051;
+    text-decoration: underline;
+    color: #4dff8e;
+    border-color: #4dff8e;
+  }
+  &:active {
+    background-color: #313240;
+  }
+}
+.FormOuter {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: rgba(0,0,0,0.8);
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+
+  >div {
+    width: 420px;
+    background-color: #313240;
+    border: 1px solid #5e5f79;
+    border-radius: 16px;
+    animation: scalable 500ms;
+    margin: 150px auto;
+    padding: 24px 28px;
+  }
+  @keyframes scalable {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
+  >div {
+    >input {
+      margin: -8px -8px 0 0;
+      float: right;
+      background: none;
+      border: none;
+      color: #c1c1c1;
+      cursor: pointer;
+      font-family: Consolas, monospace;
+      font-size: 16px;
+      outline: none;
+      &:hover {color: #ffffff;}
+      &:active{color: #c1c1c1;}
+    }
+    p {
+      font-weight: normal;
+      font-size: 14px;
+      padding-left: 6px;
+      color: #dedede;
+      padding-top: 6px;
+
+      >span {
+        color: #4790ef;
+
+        &:hover {
+          text-decoration: underline;
+          color: #4790ef;
+          cursor: pointer;
+        }
+        &:active {
+          color: #dedede;
+        }
+      }
+    }
+  }
+  @media (max-width: 560px) {
+    >div {width: 90%;}
+  }
+}
+.FormGroup {
+  font-size: 15px;
+  padding: 2px 0;
+
+  span.title {
+    display: block;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 22px;
+    margin-bottom: -8px;
+    transform: scaleY(0.9);
+  }
+  label {
+    display: block;
+    padding: 6px;
+    color: #c1c1c1;
+    font-weight: normal;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid;
+    letter-spacing: 1px;
+    padding: 0 6px;
+    color: #c1c1c1;
+    &:focus {outline: none}
+  }
+  input[type='text'],
+  input[type='password'] {
+    background: #3f4051;
+    color: #dedede;
+    border-color: #c1c1c1;
+    font-family: Consolas, monospace;
+    &:focus {
+      box-shadow: 0 0 0 2px #164bb0;
+      border-color: #3482ec;
+    }
+  }
+  input[type='button'] {
+    height: 32px;
+    border-color: #dedede;
+    background-color: #3482ec;
+    color: #ffffff;
+    &:hover {
+      background-color: #4790ef;
+    }
+    &:active {
+      background-color: #3482ec;
+    }
+    &:focus {
+      box-shadow: 0 0 0 2px #5e5f79;
+    }
+  }
+}
+
+.LoginButton {
+  @extend .Button;
+}
+.LoginForm {
+  @extend .FormOuter;
+}
