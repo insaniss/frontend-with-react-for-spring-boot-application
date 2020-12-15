@@ -10,6 +10,7 @@ $lineColor: #5e5f79;
   border-radius: 8px;
   transition: 200ms;
   outline: none;
+  cursor: pointer;
 
   &:hover {
     background-color: #3f4051;
@@ -32,13 +33,13 @@ $lineColor: #5e5f79;
   overflow: auto;
 
   >div {
-    width: 420px;
+    width: 480px;
     background-color: #313240;
     border: 1px solid #5e5f79;
-    border-radius: 16px;
+    border-radius: 24px;
     animation: scalable 500ms;
-    margin: 150px auto;
-    padding: 24px 28px;
+    margin: 120px auto;
+    padding: 36px 42px;
   }
   @keyframes scalable {
     from {transform: scale(0)}
@@ -66,16 +67,13 @@ $lineColor: #5e5f79;
       padding-top: 6px;
 
       >span {
-        color: #4790ef;
-
+        color: #5396f1;
         &:hover {
           text-decoration: underline;
-          color: #4790ef;
+          color: #5396f1;
           cursor: pointer;
         }
-        &:active {
-          color: #dedede;
-        }
+        &:active {color: #dedede;}
       }
     }
   }
@@ -85,7 +83,7 @@ $lineColor: #5e5f79;
 }
 .FormGroup {
   font-size: 15px;
-  padding: 2px 0;
+  padding: 4px 0;
 
   span.title {
     display: block;
@@ -93,19 +91,22 @@ $lineColor: #5e5f79;
     letter-spacing: 2px;
     font-size: 22px;
     margin-bottom: -8px;
-    transform: scaleY(0.9);
   }
   label {
     display: block;
     padding: 6px;
-    color: #c1c1c1;
+    color: #dedede;
     font-weight: normal;
+  }
+  label#last {
+    height: 30px;
+    color: #f84040;
   }
   input {
     width: 100%;
     height: 30px;
     border-radius: 8px;
-    border: 1px solid;
+    border: 1px solid #5e5f79;
     letter-spacing: 1px;
     padding: 0 6px;
     color: #c1c1c1;
@@ -115,7 +116,6 @@ $lineColor: #5e5f79;
   input[type='password'] {
     background: #3f4051;
     color: #dedede;
-    border-color: #c1c1c1;
     font-family: Consolas, monospace;
     &:focus {
       box-shadow: 0 0 0 2px #164bb0;
@@ -124,9 +124,9 @@ $lineColor: #5e5f79;
   }
   input[type='button'] {
     height: 32px;
-    border-color: #dedede;
     background-color: #3482ec;
     color: #ffffff;
+    cursor: pointer;
     &:hover {
       background-color: #4790ef;
     }
@@ -136,6 +136,11 @@ $lineColor: #5e5f79;
     &:focus {
       box-shadow: 0 0 0 2px #5e5f79;
     }
+  }
+  small {
+    float: right;
+    color: #f84040;
+    padding-right: 4px;
   }
 }
 
