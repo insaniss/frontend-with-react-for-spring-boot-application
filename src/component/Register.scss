@@ -1,8 +1,124 @@
-@import './Login';
-
+$line: #5e5f79;
 .RegisterButton {
-  @extend .Button;
+  width: 100%;
+  background: none;
+  border: 1px solid $line;
+  padding: 7px 0;
+  border-radius: 8px;
+  color: #c1c1c1;
+  outline: none;
+  transition: 200ms;
+  &:hover {
+    text-decoration: underline;
+    background-color: #3f4051;
+    color: #4790ef;
+    border-color: #4790ef;
+  }
+  &:active {
+    background-color: #313240;
+  }
 }
 .RegisterForm {
-  @extend .FormOuter;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  overflow: auto;
+  >div {
+    width: 400px;
+    background-color: #313240;
+    border: 1px solid #5e5f79;
+    border-radius: 24px;
+    animation: scalable 300ms;
+    margin: 112px auto;
+    padding: 36px 32px;
+  }
+  @keyframes scalable {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+  }
+  @media (max-width: 560px) {
+    >div {width: 90%;}
+  }
+}
+.Form {
+  >input {
+    margin: -24px -18px 0 0;
+    float: right;
+    background: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    color: #c1c1c1;
+    outline: none;
+    &:hover {color: #ffffff}
+    &:active {color: #c1c1c1}
+  }
+  >p {
+    font-weight: normal;
+    font-size: 14px;
+    padding-left: 6px;
+    color: #dedeed;
+  }
+  >p span {
+    color: #5396f1;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    &:active {color: #dedeed}
+  }
+}
+.FormGroup {
+  padding-bottom: 8px;
+
+  >span {
+    text-align: center;
+    display: block;
+    font-size: 22px;
+  }
+  input {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    padding: 0 6px;
+    color: #c1c1c1;
+    border: 1px solid #5e5f79;
+    outline: none;
+  }
+  input[type="text"],
+  input[type="password"] {
+    margin-top: 20px;
+    background-color: #3f4051;
+    color: #dedeed;
+    letter-spacing: 1px;
+    &:focus {
+      box-shadow: 0 0 0 2px #164bb0;
+      border-color: #3482ec;
+    }
+  }
+  input[type="button"] {
+    height: 34px;
+    margin-top: 24px;
+    background-color: #3482ec;
+    color: #ffffff;
+    cursor: pointer;
+    &:hover {
+      background-color: #4790ef;
+    }
+    &:active {
+      background-color: #3482ec;
+    }
+  }
+  small {
+    position: absolute;
+    color: #e54a4a;
+    font-weight: normal;
+    padding-left: 4px;
+    height: 16px;
+  }
 }
