@@ -1,76 +1,76 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import {useSelector} from 'react-redux';
 
 import './SideBar.scss';
 import ReactLogo from '../logotype/react.svg';
 import GithubLogo from '../logotype/github.svg';
-import Login from './Login';
-import Register from './Register';
-import Logout from "./Logout";
+import {Login} from './Login';
+import {Register} from './Register';
+import Logout from './Logout'
+import {selectAuth} from '../redux/slice/authSlice';
 
 // sidebar component
-class SideBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.sideBar = React.createRef();
-  }
+export default function SideBar() {
+  const sideBar = useRef();
+  const loginForm = useRef();
+  const registerForm = useRef()
 
-  // the private method, which scrolls sidebar
-  #scrollWindow = () => {
-    let length = 16 + window.pageYOffset;
+  const authValue = useSelector(selectAuth);
 
-    // if sidebar value non-null
-    if (this.sideBar !== undefined && this.sideBar.current != null) {
-      length -= this.sideBar.current.offsetTop;
-      this.sideBar.current.style.paddingTop = length + 'px';
+  // sets form visibility
+  const setFormVisibility = (formName, visibility) => {
+    switch (formName) {
+      case "login":
+        if (loginForm !== undefined && loginForm.current != null)
+          loginForm.current.style.display = visibility;
+        break;
+      case "register":
+        if (registerForm !== undefined && registerForm.current != null)
+          registerForm.current.style.display = visibility;
+        break;
     }
   }
 
-  showLoginForm = () => {
-    this.login.showLoginForm();
-  }
-  showRegisterForm = () => {
-    this.register.showRegisterForm();
-  }
+  useEffect(() => {
+    window.addEventListener('scroll', scrollWindow);
+    return () => {
+      window.removeEventListener('scroll', scrollWindow);
+    }
+  }, []);
 
-  // react lifecycle method run after the mounting of component
-  componentDidMount() {
-    window.addEventListener('scroll', this.#scrollWindow);
-  }
-  // react lifecycle method run before the mounting of component
-  componentWillUnmount() {
-    window.addEventListener('scroll', this.#scrollWindow);
+  // the private method, which scrolls sidebar
+  const scrollWindow = () => {
+    let length = 16 + window.pageYOffset;
+
+    // if sidebar value non-null
+    if (sideBar !== undefined && sideBar.current != null) {
+      length -= sideBar.current.offsetTop;
+      sideBar.current.style.paddingTop = length + 'px';
+    }
   }
 
   // link to the sources
-  #sourceCode = "https://github.com/crazifoo/frontend-with-react-for-spring-boot-application";
+  const sourceCode = "https://github.com/crazifoo/frontend-with-react-for-spring-boot-application";
 
-  render() {
-    return (
-      <div className="SideBar" ref={this.sideBar}>
-        <div>
-          <img src={ReactLogo} alt="react"/>
-          <div className="NavBar">
-            <Link className={'link'} to="/home">Home</Link>
-            <Link className={'link'} to="/main">Main</Link>
-          </div>
-          {
-            localStorage.getItem("auth") ?
-              <div className="Auth">
-                <Login registerForm={this.showRegisterForm} onRef={ref => (this.login = ref)}/>
-                <Register loginForm={this.showLoginForm} onRef={ref => (this.register = ref)}/>
-              </div> :
-              <div className="Auth">
-                <Logout />
-              </div>
-          }
-          <a className="Github" href={this.#sourceCode} target="_blank">
-            <img src={GithubLogo} alt="github"/>
-          </a>
+  return (
+    <div className="SideBar" ref={sideBar}>
+      <div>
+        <img src={ReactLogo} alt="react"/>
+        <div className="NavBar">
+          <Link className={'link'} to="/home">Home</Link>
+          <Link className={'link'} to="/main">Main</Link>
         </div>
+        {!authValue ?
+          <div className="Auth">
+            <Login setFormVisibility={setFormVisibility} ref={loginForm}/>
+            <Register setFormVisibility={setFormVisibility} ref={registerForm}/>
+          </div> :
+          <div className="Auth"><Logout/></div>}
+        <a className="Github" href={sourceCode} target="_blank">
+          <img src={GithubLogo} alt="github"/>
+        </a>
       </div>
-    )
-  }
+    </div>
+  )
 }
-
-export default SideBar;
