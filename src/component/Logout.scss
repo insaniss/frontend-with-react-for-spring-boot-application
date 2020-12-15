@@ -1,0 +1,9 @@
+@import './Register';
+
+.LogoutButton {
+  @extend .RegisterButton;
+  &:hover {
+    color: #ff2130;
+    border-color: #ff2130;
+  }
+}

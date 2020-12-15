@@ -1,13 +1,16 @@
 import React, {useState, forwardRef} from 'react';
 import {Input} from 'react-toolbox/lib/input';
+import {useDispatch} from 'react-redux';
 
 import './Register.scss';
 import {isValidUsername} from '../service/validator/user';
 import {isValidPassword} from '../service/validator/user';
 import {areEqual} from '../service/validator/user';
 import {register} from '../service/request/user';
+import {setAuth} from '../redux/slice/authSlice';
 
 export const Register = forwardRef((props, ref) => {
+  const dispatch = useDispatch();
 
   const [username1, setUsername1] = useState('');
   const [username1Ok, setUsername1Ok] = useState(null);
@@ -33,6 +36,7 @@ export const Register = forwardRef((props, ref) => {
         if (response.status === 200) {
           response.text().then(token => {
             localStorage.setItem("auth", token);
+            dispatch(setAuth(true));
             hideRegisterForm();
           });
         } else if (response.status === 409) {

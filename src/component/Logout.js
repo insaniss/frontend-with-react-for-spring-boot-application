@@ -1,14 +1,20 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
 
 import './Logout.scss';
+import {setAuth} from '../redux/slice/authSlice';
 
-class Logout extends React.Component {
+export default function Logout() {
+  const dispatch = useDispatch();
 
-  render() {
-    return(
-      <input type="button" value="Logout"/>
-    )
+  const handleLogoutAction = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    dispatch(setAuth(false));
   }
-}
 
-export default Logout;
+  return (
+    <input className="LogoutButton" type="button" value="Logout"
+           onClick={handleLogoutAction}/>
+  )
+}

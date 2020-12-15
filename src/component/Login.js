@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
 import {Input} from 'react-toolbox/lib/input';
+import {useDispatch} from 'react-redux';
 
 import './Login.scss';
 import {isValidUsername} from '../service/validator/user';
 import {isValidPassword} from '../service/validator/user';
 import {login} from '../service/request/user';
+import {setAuth} from '../redux/slice/authSlice';
 
 export const Login = React.forwardRef((props, ref) => {
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState('');
   const [usernameOk, setUsernameOk] = useState(null);
@@ -29,6 +32,7 @@ export const Login = React.forwardRef((props, ref) => {
         if (response.status === 200) {
           response.text().then(token => {
             localStorage.setItem("auth", token);
+            dispatch(setAuth(true));
             hideLoginForm();
           });
         } else if (response.status === 401) {
