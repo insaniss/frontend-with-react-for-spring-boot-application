@@ -7,7 +7,7 @@ import {isValidUsername} from '../service/validator/user';
 import {isValidPassword} from '../service/validator/user';
 import {areEqual} from '../service/validator/user';
 import {register} from '../service/request/user';
-import {setAuth} from '../redux/slice/authSlice';
+import {setAuth} from '../redux/slice/authValueSlice.js';
 
 export const Register = forwardRef((props, ref) => {
   const dispatch = useDispatch();

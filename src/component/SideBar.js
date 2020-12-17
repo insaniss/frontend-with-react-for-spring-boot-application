@@ -8,7 +8,7 @@ import GithubLogo from '../logotype/github.svg';
 import {Login} from './Login';
 import {Register} from './Register';
 import Logout from './Logout'
-import {selectAuth} from '../redux/slice/authSlice';
+import {selectAuth} from '../redux/slice/authValueSlice.js';
 
 // sidebar component
 export default function SideBar() {
@@ -59,7 +59,7 @@ export default function SideBar() {
         <img src={ReactLogo} alt="react"/>
         <div className="NavBar">
           <Link className={'link'} to="/home">Home</Link>
-          <Link className={'link'} to="/main">Main</Link>
+          {authValue && <Link className={'link'} to="/main">Main</Link>}
         </div>
         {!authValue ?
           <div className="Auth">

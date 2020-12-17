@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 
 import './Logout.scss';
-import {setAuth} from '../redux/slice/authSlice';
+import {setAuth} from '../redux/slice/authValueSlice.js';
 
 export default function Logout() {
   const dispatch = useDispatch();
