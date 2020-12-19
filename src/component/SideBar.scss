@@ -49,6 +49,7 @@ $lineColor: #5e5f79;
     border-radius: 8px;
     border: 1px solid $lineColor;
     transition: 200ms;
+    outline: none;
 
     &:hover {
       background-color: #3f4051;

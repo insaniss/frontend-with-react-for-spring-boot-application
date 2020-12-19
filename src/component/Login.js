@@ -6,7 +6,7 @@ import './Login.scss';
 import {isValidUsername} from '../service/validator/user';
 import {isValidPassword} from '../service/validator/user';
 import {login} from '../service/request/user';
-import {setAuth} from '../redux/slice/authValueSlice.js';
+import {setAuth} from '../redux/slice/authValueSlice';
 
 export const Login = React.forwardRef((props, ref) => {
   const dispatch = useDispatch();

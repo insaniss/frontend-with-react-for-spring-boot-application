@@ -8,7 +8,7 @@ import GithubLogo from '../logotype/github.svg';
 import {Login} from './Login';
 import {Register} from './Register';
 import Logout from './Logout'
-import {selectAuth} from '../redux/slice/authValueSlice.js';
+import {selectAuth} from '../redux/slice/authValueSlice';
 
 // sidebar component
 export default function SideBar() {
