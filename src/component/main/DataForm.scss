@@ -1,0 +1,145 @@
+
+.DataForm {
+  margin-top: -16px;
+  @media (min-width: 760px) {
+    .Outer {
+      display: flex;
+    }
+  }
+  .Inner {
+    padding: 16px 0 0 0;
+    >div {
+      width: 440px;
+    }
+    label {
+      font-family: Consolas, monospace;
+      font-size: 14px;
+      color: #c1c1c1;
+    }
+    & +div {
+      padding-top: 42px;
+      small {
+        background-color: #3f4051;
+        padding: 4px 12px;
+        border-radius: 8px;
+        font-family: Consolas, monospace;
+        color: #e54a4a;
+      }
+      @media (max-width: 760px) {
+        small {
+          background: none;
+          margin-right: auto;
+          padding-left: 0;
+          font-size: 12px;
+        }
+        & {padding-top: 0;}
+      }
+    }
+  }
+}
+
+.Input {
+  input[type="text"] {
+    height: 28px;
+    margin-top: 6px;
+    width: 93%;
+    border-radius: 8px;
+    border: 1px solid #5e5f79;
+    background-color: #3f4051;
+    outline: none;
+    padding-left: 6px;
+    font-family: Consolas, monospace;
+    color: #dedeed;
+    font-size: 14px;
+    letter-spacing: 1px;
+    &:focus {
+      box-shadow: 0 0 0 2px #164bb0;
+      border-color: #3482ec;
+    }
+  }
+  span {
+    display: none;
+  }
+  @media (max-width: 760px) {
+    input[type="text"] {
+      width: 370px;
+    }
+  }
+}
+
+.CheckBox {
+  display: flex;
+  width: 100%;
+
+  .checkbox{
+    margin-top: 6px;
+    display: flex;
+    padding-right: 3%;
+    font-family: Consolas, monospace;
+    font-weight: normal;
+    color: #c1c1c1;
+
+    input[type="checkbox"] {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      -o-appearance: none;
+    }
+    input[type="checkbox"] {
+      border-radius: 8px;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #5e5f79;
+      outline: none;
+      background-color: #3f4051;
+    }
+    input:checked::after {
+      font-weight: bold;
+      color: #c1c1c1;
+      content: "\2713";
+      font-size: 15px;
+      padding: 0 3px;
+    }
+    input:focus {
+      box-shadow: 0 0 0 2px #164bb0;
+      border-color: #3482ec;
+    }
+    span {
+      margin-left: 4px;
+      font-size: 14px;
+      padding: 2px 0;
+    }
+  }
+  @media (max-width: 760px) {
+    .checkbox {
+      padding-right: 8px;
+    }
+  }
+}
+
+.SubmitButton {
+  input {
+    font-family: Consolas, monospace;
+    font-size: 16px;
+    color: #ffffff;
+    height: 30px;
+    background-color: #3482ec;
+    border: 1px solid #5e5f79;
+    width: 93%;
+    border-radius: 8px;
+    outline: none;
+    &:hover {
+      background-color: #4790ef;
+    }
+    &:active {
+      background-color: #3482ec;
+    }
+    &:focus {
+      box-shadow: 0 0 0 2px #42435a;
+    }
+  }
+  @media (max-width: 760px) {
+    input {
+      width: 370px;
+    }
+  }
+}

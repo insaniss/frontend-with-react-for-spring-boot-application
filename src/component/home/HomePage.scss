@@ -1,0 +1,14 @@
+.HomePage {
+  text-align: center;
+
+  .Clock {
+    margin-top: min(300px, 36vh);
+    font-family: Consolas, monospace;
+    font-size: 48px;
+    color: #c1c1c1;
+  }
+  .Date {
+    font-family: Consolas, monospace;
+    color: #c1c1c1;
+  }
+}

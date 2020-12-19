@@ -1,0 +1,13 @@
+.MainPage {
+  >label {
+    color: #4790ef;
+    display: block;
+    padding: 20px 0 12px 0;
+    text-decoration: underline;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+  >label:first-child {
+    padding-top: 0;
+  }
+}

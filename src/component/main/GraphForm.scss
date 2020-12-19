@@ -1,0 +1,155 @@
+.GraphForm {
+  >div:first-child {
+    display: flex;
+    align-items: center;
+  }
+}
+.Graph {
+  min-width: 360px;
+  width: 44%;
+  border: 1px solid #5e5f79;
+  border-radius: 8px;
+  padding: 12px 2%;
+  text-align: center;
+
+  svg {
+    stroke: #757692;
+    #area {
+      stroke: none;
+      fill: rgb(39, 139, 148);
+      opacity: 0.5;
+    }
+    line {
+      stroke: #b3d4ff;
+      stroke-dasharray: 6;
+    }
+    circle#dot {
+      fill: red;
+      stroke: none;
+      transition: 200ms;
+    }
+    g {transition: 300ms}
+    & +span {
+      font-size: 12px;
+      color: #e54a4a;
+      font-family: Consolas, monospace;
+    }
+  }
+}
+.LastPointInfo {
+  width: 50%;
+  margin-left: 5%;
+}
+@media (max-width: 750px) {
+  .Graph {
+    width: 100%;
+    svg {
+      max-height: 360px;
+      max-width: 360px;
+    }
+  }
+  .LastPointInfo {
+    display: none;
+  }
+}
+.LastPoint {
+  display: block;
+  font-weight: normal;
+  font-family: Consolas, monospace;
+
+  div#title {
+    padding-left: 4%;
+    padding-bottom: 8px;
+    font-size: 125%;
+  }
+  div#ok {
+    li {
+      padding: 6px 0;
+      span {
+        padding: 4px 0;
+        color: #c1c1c1;
+      }
+      code {
+        background-color: #46475d;
+        color: #ffffff;
+        margin-left: 8px;
+        padding: 2px 6px;
+        border-radius: 8px;
+      }
+      code#hit {
+        background-color: #138834;
+      }
+      code#fail {
+        background-color: #ff2130;
+      }
+    }
+  }
+  div#null {
+    padding-left: 3%;
+    height: 120px;
+  }
+}
+
+.Switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 24px;
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}
+
+.Frame {
+  padding: 12px 0;
+  font-family: Consolas, monospace;
+  font-weight: normal;
+  color: #c1c1c1;
+  >span {
+    padding-left: 8px;
+    text-decoration: underline;
+  }
+}
+.Slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3f4051;
+  -webkit-transition: .4s;
+  transition: .4s;
+  &::before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #313240;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  &.Round {
+    border-radius: 20px;
+  }
+  &.Round::before {
+    border-radius: 50%;
+  }
+}
+input {
+  &:checked + .Slider {
+    background-color: #4790ef;
+    &::before {
+      background-color: #164bb0;
+    }
+  }
+  &:checked + .Slider::before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(18px);
+  }
+}
