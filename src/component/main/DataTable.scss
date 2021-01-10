@@ -7,7 +7,11 @@
   }
   @media (max-width: 960px) {
     >div {
+      font-size: 12px;
       display: block;
+    }
+    .Cell {
+      font-size: 12px;
     }
     .ClearButton {
       margin: 12px 0 0 0;
@@ -28,7 +32,7 @@
       border: 1px solid #5e5f79;
       border-top: 2px solid #5e5f79;
       border-bottom: 2px solid #5e5f79;
-      min-width: 48px;
+      //min-width: 48px;
     }
   }
   .Row {
@@ -50,7 +54,7 @@
 .ClearButton {
   margin-left: 2%;
   padding: 3px 0;
-  width: 20%;
+  width: max(20%, 100px);
   input {
     font-family: Consolas, monospace;
     font-size: 16px;

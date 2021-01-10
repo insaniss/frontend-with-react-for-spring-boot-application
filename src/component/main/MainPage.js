@@ -8,6 +8,7 @@ import {getAllPoints} from "../../service/request/point"
 import {loadPoints} from "../../redux/slice/pointStoreSlice"
 import {setLastPoint} from "../../redux/slice/lastPointSlice"
 import DataForm from "./DataForm"
+import {setAuth} from "../../redux/slice/authValueSlice";
 
 export default function MainPage() {
   const dispatch = useDispatch()
@@ -22,9 +23,12 @@ export default function MainPage() {
           else
             dispatch(setLastPoint(null))
         })
+      } else {
+          localStorage.clear();
+          dispatch(setAuth(false));
       }
     })
-  }, [])
+  }, [dispatch])
 
   return (
     <div className="MainPage">

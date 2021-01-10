@@ -5,7 +5,7 @@
   }
 }
 .Graph {
-  min-width: 360px;
+  //min-width: 360px;
   width: 44%;
   border: 1px solid #5e5f79;
   border-radius: 8px;
@@ -110,6 +110,9 @@
   >span {
     padding-left: 8px;
     text-decoration: underline;
+  }
+  @media (max-width: 560px) {
+    font-size: 12px;
   }
 }
 .Slider {
