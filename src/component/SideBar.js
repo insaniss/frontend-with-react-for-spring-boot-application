@@ -51,7 +51,7 @@ export default function SideBar() {
   }
 
   // link to the sources
-  const sourceCode = "https://github.com/insaniss/frontend-with-react-for-spring-boot-application";
+  const sourceCode = "https://github.com/octoant/web-programming-fontend";
 
   return (
     <div className="SideBar" ref={sideBar}>
